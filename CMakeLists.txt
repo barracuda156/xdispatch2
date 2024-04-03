@@ -23,15 +23,14 @@ include(CheckIncludeFile)
 project(xdispatch2)
 include(CTest)
 
+set(MZ_DIR /opt/local/share/mz-cmaketools)
+
 # build scripts
-if(NOT HAS_MZ_GLOBAL)
-    include(build/global.cmake)
-    include(build/macros.cmake)
-    include(build/conan.cmake)
-endif()
+include(${MZ_DIR}/global.cmake)
+include(${MZ_DIR}/macros.cmake)
 
 # enable linting
-include(build/linting.cmake)
+include(${MZ_DIR}/linting.cmake)
 
 # check for platform features
 check_symbol_exists( dispatch_queue_create "dispatch/dispatch.h" XDISPATCH2_HAVE_LIBDISPATCH_NATIVE )
@@ -76,14 +75,14 @@ endif()
 
 
 # configuration and version information
-include(build/semver.cmake)
+include(${MZ_DIR}/semver.cmake)
 mz_determine_sem_ver(PREFIX "XDISPATCH2")
 mz_message("xdispatch version ${XDISPATCH2_VERSION}")
 
 
 # dependencies
 if( BUILD_XDISPATCH2_BACKEND_QT5 )
-    include(build/qt5.cmake)
+    include(${MZ_DIR}/qt5.cmake)
 endif()
 
 # we hide all unneeded symbols
