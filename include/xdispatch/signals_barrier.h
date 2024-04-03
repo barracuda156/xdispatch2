@@ -27,6 +27,7 @@
  * @{
  */
 
+#include <stdexcept>
 #include <tuple>
 
 #include "xdispatch/signals.h"
