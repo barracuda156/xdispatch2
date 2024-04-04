@@ -2,6 +2,7 @@
  * signals_barrier.h
  *
  * Copyright (c) 2011 - 2024 Marius Zwicker
+ * Copyright (c) 2024 Sergey Fedorov
  * All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
